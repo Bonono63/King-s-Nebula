@@ -1,1 +1,1 @@
-g++ ../src/main.cpp -o a.exe
+g++ -I../include/ ../src/main.cpp -o a.exe

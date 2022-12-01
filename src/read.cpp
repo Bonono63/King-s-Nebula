@@ -1,5 +1,5 @@
 /*
-	reads any file given to it in a binary mode stream
+	Description: reads any file given to it in a binary mode stream
 	and then returns it as a string.
 */
 

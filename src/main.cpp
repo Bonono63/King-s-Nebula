@@ -2,6 +2,10 @@
 #include <fstream>
 #include "read.cpp"
 
+#define CL_TARGET_OPENCL_VERSION 220
+
+#include "CL/cl.h"
+
 #define DEBUG 1
 #define filename "payload.exe"
 
@@ -22,7 +26,17 @@ int main(void) {
 	
 	std::string fortnite = read_payload(file);
 	
-	std::cout << fortnite;
+	std::cout << "amogus\n";
+	
+	cl_uint PLATFORM_NUMBER;
+	cl_uint PLATFORM_DEVICES;
+	
+	cl_int ret = clGetPlatformIDs(0,NULL,&(PLATFORM_NUMBER));
+	
+	cl_platform_id *platform = NULL;
+	platform = (cl_platform_id*)malloc(PLATFORM_NUMBER*sizeof(cl_platform_id));
+	ret = clGetPlatformIDs(PLATFORM_NUMBER,platform,NULL);
+	printf("%d", ret);
 	
 	return 0;
 }
