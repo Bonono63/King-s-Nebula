@@ -1,1 +1,4 @@
-g++ -I../include/ ../src/main.cpp -o a.exe
+g++ -I ../include -L.. -lOpenCL ../src/main.cpp
+#g++ OpenCL.lib main.o -o main.exe
+./a.exe
+

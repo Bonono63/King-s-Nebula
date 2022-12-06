@@ -4,7 +4,10 @@
 
 #define CL_TARGET_OPENCL_VERSION 220
 
+//#include "opencl_helper.c"
 #include "CL/cl.h"
+
+#include "opencl_helper.c"
 
 #define DEBUG 1
 #define filename "payload.exe"
@@ -24,19 +27,26 @@ int main(void) {
 	
 	fs::path file = fs::current_path().string()+"\\"+filename;
 	
-	std::string fortnite = read_payload(file);
+	//std::string fortnite = read_payload(file);
 	
-	std::cout << "amogus\n";
+	//cl_int a = getNumberOfPlatforms();
 	
-	cl_uint PLATFORM_NUMBER;
-	cl_uint PLATFORM_DEVICES;
+	//std::cout << a;
 	
-	cl_int ret = clGetPlatformIDs(0,NULL,&(PLATFORM_NUMBER));
+	/*
+	std::string out;
+	out = "123";
+	char amog[50];
+	amog[0] = '2';
+	std::cout << out + "1" + amog;
+	*/
 	
-	cl_platform_id *platform = NULL;
-	platform = (cl_platform_id*)malloc(PLATFORM_NUMBER*sizeof(cl_platform_id));
-	ret = clGetPlatformIDs(PLATFORM_NUMBER,platform,NULL);
-	printf("%d", ret);
+	
+	/*
+	for (cl::Platform x : platforms) {
+		std::cout << cl::Platform::get(&x);
+		//std::cout << x;
+	}*/
 	
 	return 0;
 }
